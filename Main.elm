@@ -22,7 +22,7 @@ view string =
 update : Msg -> String -> (String, Cmd Msg)
 update msg model =
   case msg of
-    FetchString ->  (model, Http.getString "/tale_of_two_cities.txt" |> Http.send GotString)
+    FetchString ->  (model, Http.getString "tale_of_two_cities.txt" |> Http.send GotString)
     GotString (Ok string) -> (string, Cmd.none)
     GotString (Err string) -> (model, Cmd.none)
 
